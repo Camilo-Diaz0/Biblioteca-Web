@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.ModeloConsulta;
+import Model.Utilidades.UserRole;
 import Model.Utilidades.ValidarCampos;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -48,7 +49,7 @@ public class ServletConsulta extends HttpServlet {
         }
         
         if (buscar && valido) {
-            getData(request, response, rol);
+            getData(request, response, rol, id);
         } else if(cerrar) {
             //request.getSession().removeAttribute("search-input");
             request.setAttribute("mostrarPanelBusqueda", false); // Forzar a mostrar el panel
@@ -83,13 +84,15 @@ public class ServletConsulta extends HttpServlet {
         return "Short description";
     }// </editor-fold>
     
-    private void getData(HttpServletRequest request, HttpServletResponse response, String rol) throws ServletException, IOException {
+    private void getData(HttpServletRequest request, HttpServletResponse response, String rol, String id) throws ServletException, IOException {
         long userId = ValidarCampos.getCodigo();
+        
         ModeloConsulta modelo = new ModeloConsulta(userId, rol);
         Object[] userData = modelo.consulta();
 
         if (userData != null) {
             HttpSession miSession = request.getSession();
+            miSession.setAttribute("id", id);
             miSession.setAttribute("userData", userData);
             response.sendRedirect("View/HTML/resultado_busqueda.jsp");
         } else {

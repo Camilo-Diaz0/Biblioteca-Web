@@ -15,13 +15,19 @@
             <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/web/View/HTML/menu_admin.jsp</file>
             <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/web/View/HTML/menu_bibl.jsp</file>
             <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/web/View/HTML/menu_estudiante.jsp</file>
-            <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/web/View/Javascript/ControladorSideBar.js</file>
-            <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/src/java/Controller/ServletConsulta.java</file>
             <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/web/View/HTML/formulario_update.jsp</file>
             <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/src/java/Controller/ServletUpdate.java</file>
             <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/src/java/Controller/ServletConsultaGeneral.java</file>
             <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/web/View/HTML/consultaGeneral.jsp</file>
-            <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/src/java/Controller/ServletLogin.java</file>
+            <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/web/View/HTML/menu_registrar.jsp</file>
+            <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/web/View/CSS/menu_registrar.css</file>
+            <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/src/java/Controller/ServletMenuRegistrar.java</file>
+            <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/web/View/Javascript/ControladorSideBar.js</file>
+            <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/src/java/Controller/ServletMenuAdmin.java</file>
+            <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/src/java/Controller/ServletMenuActualizar.java</file>
+            <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/web/View/HTML/formulario.jsp</file>
+            <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/web/View/CSS/formulario.css</file>
+            <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/web/View/HTML/formulario_ejemplares.jsp</file>
         </group>
     </open-files>
 </project-private>

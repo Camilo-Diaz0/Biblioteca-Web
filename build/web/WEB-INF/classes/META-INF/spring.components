@@ -1,0 +1,7 @@
+Controller.ServletConsulta=javax.servlet.annotation.WebServlet
+Controller.ServletConsultaGeneral=javax.servlet.annotation.WebServlet
+Controller.ServletFormulario=javax.servlet.annotation.WebServlet
+Controller.ServletLogin=javax.servlet.annotation.WebServlet
+Controller.ServletMenuActualizar=javax.servlet.annotation.WebServlet
+Controller.ServletMenuAdmin=javax.servlet.annotation.WebServlet
+Controller.ServletUpdate=javax.servlet.annotation.WebServlet

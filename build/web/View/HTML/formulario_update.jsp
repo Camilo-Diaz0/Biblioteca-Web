@@ -21,37 +21,32 @@
                 <input type="text" id="name" name="name" required placeholder="Nombre" value="${userData[1]}">
               </div>
               <div class="form-group">
-                   <label for="lastname">Apellido completo</label>
-                   <input type="text" id="lastname" name="lastname" required placeholder="Apellido" value="${userData[2]}">
+                <label for="lastname">Apellido completo</label>
+                <input type="text" id="lastname" name="lastname" required placeholder="Apellido" value="${userData[2]}">
               </div>
               <div class="form-group">
-                   <label for="codigo">Código</label>
-                   <input type="text" id="codigo" name="codigo" required placeholder="Código del usuario"> 
+                <label for="codigo">Código</label>
+                <input type="text" id="codigo" name="codigo" required placeholder="Código del usuario" readonly value="${userData[0]}"> 
               </div>
               <div class="form-group">
-                   <label for="email">Correo electrónico</label>
-                   <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com" value="${userData[4]}">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com" value="${userData[4]}">
               </div>
               <div class="form-group">
-                   <label for="password">Contraseña</label>
-                   <input type="password" id="password" name="password" required minlength="8" placeholder="Mínimo 8 caracteres" value="${userData[5]}">
+                <label for="password">Contraseña</label>
+                <input type="text" id="password" name="password" required minlength="8" placeholder="Mínimo 8 caracteres" value="${userData[5]}">
+              </div>
+              <div class="form-group"  style="display:none">
+                  <input id="role" type="text" value="${rol}" name="role">
               </div>
               <div class="form-group">
-                  <select id="role" name="role" required>
-                        <option value="">Seleccione un rol</option>
-                        <option value="admin">Administrador</option>
-                        <option value="student">Estudiante</option>
-                        <option value="bibl">Bibliotecario</option>
-                  </select>
-              </div>
-              <div class="form-group">
-                  <label>Estado: </label>
-                    <div class="radio-group">
-                        <label for="activo">Activo</label>
-                        <input class="radio" type="radio" id="activo" name="estado" value= "Activo" required ${userData[3].equals("Activo") ? "checked" : ""}>
-                        <label for="inactivo">Inactivo</label>
-                        <input class="radio" type="radio" id="inactivo" name="estado" value="Inactivo"  ${userData[3].equals("Inactivo") ? "checked" : ""}>
-                    </div>
+                <label>Estado:</label>
+                <div class="radio-group">
+                    <label for="activo">Activo</label>
+                    <input class="radio" type="radio" id="activo" name="estado" value= "Activo" required ${userData[3].equals("Activo") ? "checked" : ""}>
+                    <label for="inactivo">Inactivo</label>
+                    <input class="radio" type="radio" id="inactivo" name="estado" value="Inactivo"  ${userData[3].equals("Inactivo") ? "checked" : ""}>
+                </div>
               </div>
               <button type ="submit" class="register-button">Actualizar</button>
             </form>

@@ -6,10 +6,8 @@ package Controller;
 
 import Model.ModeloConsulta;
 import Model.ModeloUpdate;
-import Model.Utilidades.UserRole;
 import static Model.Utilidades.ValidarCampos.validarTodosCampos;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Map;
 import javax.servlet.ServletException;
@@ -19,15 +17,36 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
+
+
 /**
  *
  * @author cami-
  */
 @WebServlet(name = "ServletUpdate", urlPatterns = {"/ServletUpdate"})
 public class ServletUpdate extends HttpServlet{
-
+    
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+        String id = request.getParameter("id");
+        if(id != null) {
+            String rol = id.substring(0, 3);
+            String codigo = id.substring(3);
+            long userId = Long.parseLong(codigo); 
+            ModeloConsulta modelo = new ModeloConsulta(userId, rol);
+            Object[] userData = modelo.consulta();
+            
+            if (userData != null) {
+                String path = "View/HTML/formulario_update.jsp";
+                HttpSession miSession = request.getSession();
+                miSession.setAttribute("userData", userData);
+                miSession.setAttribute("rol", rol);
+                response.sendRedirect(path);
+            } else {
+                request.setAttribute("error", "Usuario no encontrado");
+                request.getRequestDispatcher("/error.jsp").forward(request, response);
+            }
+        }
     }
 
     /**
@@ -49,7 +68,6 @@ public class ServletUpdate extends HttpServlet{
         String password = request.getParameter("password");
       
         Map<String, String> errores = validarTodosCampos(nombre, apellido, id, email, password);
-        
         boolean flag = errores.isEmpty();
         if(flag){
             String path = "View/HTML/menu_admin.jsp";

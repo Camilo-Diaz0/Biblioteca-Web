@@ -7,7 +7,7 @@ public enum UserRole {
 
     private final String rol;
     private final String tableName;
-
+    
     UserRole(String rol, String tableName) {
         this.rol = rol;
         this.tableName = tableName;
@@ -17,6 +17,14 @@ public enum UserRole {
         for (UserRole role : values()) {
             if (role.rol.equals(rol)) {
                 return role.tableName;
+            }
+        }
+        return null;
+    }
+    public static String getCodeByTableName(String rol) {
+        for (UserRole role : values()) {
+            if (role.tableName.equals(rol)) {
+                return role.rol;
             }
         }
         return null;

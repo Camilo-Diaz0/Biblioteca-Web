@@ -4,6 +4,7 @@
     Author     : Esteb
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import ="Controller.ServletMenuAdmin"%>
 <%@page import ="Controller.ServletConsulta"%>
@@ -32,10 +33,12 @@
                     </button>
 
                     <div class="menu-category">Contenido</div>
-                    <button class="menu-btn" data-action="gestion-usuarios">
-                        <i class="fas fa-users"></i>
-                        <span>Gestión de Usuarios</span>
-                    </button>
+                    <c:if test="${usuario.getCodeRol() == '007'}">
+                        <button class="menu-btn";" data-action="gestion-usuarios">
+                            <i class="fas fa-users"></i>
+                            <span>Gestión de Usuarios </span>
+                        </button>
+                    </c:if>
                     <button class="menu-btn" data-action="busqueda-avanzada">
                         <i class="fas fa-search"></i>
                         <span>Búsqueda Avanzada</span>
@@ -64,10 +67,11 @@
                         <i class="fas fa-cog"></i>
                         <span>Ajustes del Sistema</span>
                     </button>
-                    <button class="menu-btn btn-danger" data-action="cerrar-sesion">
+<!--                    <button class="menu-btn btn-danger" data-action="cerrar-sesion">
                         <i class="fas fa-sign-out-alt"></i>
                         <span>Cerrar Sesión</span>
-                    </button>
+                    </button>-->
+                    <a  class="menu-btn btn-danger" href="<%= request.getContextPath() %>/ServletLogin">cerrar session</a>
                 </div>
             </div>
             <!-- Main Content -->

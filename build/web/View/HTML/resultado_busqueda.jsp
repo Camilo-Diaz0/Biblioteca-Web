@@ -27,9 +27,15 @@
                         </tr>
                     </thead>
                     <tbody>
+                      
                         <c:if test="${not empty userData}">
                             <tr>
-                                <td><c:out value="${userData[0]}"/></td> <!-- ID -->
+                        
+                        
+                            <td><a href="<%= request.getContextPath()%>/ServletUpdate?id=${id}">
+                                <c:out value="${userData[0]}"/></a>
+                            </td>
+                         <!-- ID -->
                                 <td><c:out value="${userData[1]}"/></td> <!-- Nombre -->
                                 <td><c:out value="${userData[2]}"/></td> <!-- Apellido -->
                                 <td><c:out value="${userData[3]}"/></td> <!-- Estado -->
