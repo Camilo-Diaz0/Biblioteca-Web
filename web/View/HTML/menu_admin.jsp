@@ -161,7 +161,6 @@
         </div>  
                        
         <script src="<%= request.getContextPath()%>/View/Javascript/ControladorSideBar.js?v=2"></script>
-        <script src="link"></script>
         
     </body>
 </html>

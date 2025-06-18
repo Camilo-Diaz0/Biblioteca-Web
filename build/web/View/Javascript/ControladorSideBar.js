@@ -18,7 +18,7 @@ function asignarEvento(action) {
             break;
         case 'gestion-usuarios':
             console.log('Gestión de Usuarios clickeado');
-            window.location.href = '/BibliotecaWeb/View/HTML/formulario.jsp';
+            window.location.href = '/BibliotecaWeb/View/HTML/menu_registrar.jsp';
             break;
         case 'busqueda-avanzada':
             console.log('Búsqueda Avanzada clickeado');
