@@ -59,4 +59,13 @@ body {
 .register-button:hover {
       background-color: #0056b3;
 }
-
+.radio-group{
+    display: flex;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+.radio-group label{
+    margin-bottom: 0 !important;
+}

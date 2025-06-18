@@ -43,11 +43,13 @@ public class ValidarCampos {
     * @throws IllegalArgumentException si el código es null o vacío
     */
     public static boolean validarFormatoCodigo(String codigo) {
-       if (codigo == null || codigo.isBlank() || codigo.length() < 4) {
+       int n = 0;
+        if (codigo == null || codigo.isBlank() || codigo.length() < 4) {
            return false;
        }
+        n = codigo.length();
        try {
-           id = Long.parseLong(codigo);
+           id = Long.parseLong(codigo.substring(3, n));
            return id >= 0;
        } catch (NumberFormatException e) {
            return false;

@@ -6,6 +6,10 @@ package Model.Utilidades;
  */
 
 
+import Model.Entidades.Admin;
+import Model.Entidades.Bibliotecario;
+import Model.Entidades.Estudiante;
+import Model.Entidades.Usuario;
 import Model.Utilidades.Conexion;
 import static Model.Utilidades.Conexion.conectarMySQL;
 import static Model.Utilidades.Conexion.connection;
@@ -201,7 +205,7 @@ public class MetodosSQL extends Conexion {
     }
     
     public Object[] consultaUsuario(long primaryKey, String tabla) {
-        Object [] fila = {1, "", "", "", ""};
+        Object [] fila = {1, "", "", "", "", ""};
         boolean succesfull = conectarMySQL();
         
         if(succesfull) {
@@ -218,6 +222,7 @@ public class MetodosSQL extends Conexion {
                   fila[2] = rs.getString("Apellido");
                   fila[3] = rs.getString("Estado");
                   fila[4] = rs.getString("Correo");
+                  fila[5] = rs.getString("Password");
                 }
                
                rs.close();
@@ -231,6 +236,32 @@ public class MetodosSQL extends Conexion {
         }
         return fila;
     }
+    
+    public Usuario obtenerUsuario(long id, String tabla){
+        Object[] consultaUsuario = consultaUsuario(id, tabla);
+        Usuario usuario;
+        String code = UserRole.getCodeByTableName(tabla);
+        switch(code) {
+            case "007": usuario = new Admin();
+                        break;
+            case "010": usuario = new Bibliotecario();
+                        break;
+            case "stu": usuario = new Estudiante();
+                        break;
+            default: 
+                usuario = null;
+                break;
+        }
+        if(usuario != null && consultaUsuario != null){
+            usuario.setCodigo((long) consultaUsuario[0]);
+            usuario.setNombre((String) consultaUsuario[1]);
+            usuario.setApellido((String) consultaUsuario[2]);
+            usuario.setEstado((String) consultaUsuario[3]);
+            usuario.setEmail((String) consultaUsuario[4]);
+            usuario.setPassword((String) consultaUsuario[5]);
+        }
+        return usuario;
+    }    
     
     public int contarUsuarios(String nombreTabla) {
         int count = 0;

@@ -190,8 +190,8 @@
                     <tr>
                         <!-- Generar encabezados dinámicamente -->
                         <c:if test="${not empty data[0]}">
-                            <c:forEach var="header" items="${data[0]}">
-                                <th><c:out value="${header.key}"/></th>
+                            <c:forEach var="title" items="${data[0]}">
+                                <th><c:out value="${title.key}"/></th>
                             </c:forEach>
                         </c:if>
                     </tr>
@@ -202,7 +202,14 @@
                         <tr>
                             <!-- Iterar sobre los valores de cada fila -->
                             <c:forEach var="value" items="${row}">
-                                <td><c:out value="${value.value}"/></td>
+                                <c:if test="${value.key =='id'}">
+                                    <td><a href="<%= request.getContextPath()%>/ServletUpdate?id=${code}${value.value}">
+                                            <c:out value="${value.value}"/>
+                                    </a></td>
+                                </c:if>
+                                <c:if test="${value.key != 'id'}">
+                                    <td><c:out value="${value.value}"/></td>
+                                </c:if>
                             </c:forEach>
                         </tr>
                     </c:forEach>

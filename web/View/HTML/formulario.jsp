@@ -42,12 +42,14 @@
             </select>
       </div>
       <div class="form-group">
-            <label>Estado: </label>
-            <input type="radio" id="activo" name="estado" value= "Activo" required>
+        <label>Estado: </label>
+        <div class="radio-group">
             <label for="activo">Activo</label>
-            <input type="radio" id="inactivo" name="estado" value="Inactivo">
+            <input type="radio" id="activo" name="estado" value= "Activo" required>
             <label for="inactivo">Inactivo</label>
-      </div>
+            <input type="radio" id="inactivo" name="estado" value="Inactivo">
+        </div> 
+        </div>
       <button type ="submit" class="register-button">Registrar</button>
     </form>
   </div>

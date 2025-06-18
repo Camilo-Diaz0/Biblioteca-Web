@@ -85,8 +85,8 @@ body {
     color: white;
 }
 
-.menu-btn.btn-danger {
-    color: #e74c3c;
+.menu-btn.btn-danger{
+    text-decoration: none;
 }
 
 .menu-btn.btn-danger:hover {

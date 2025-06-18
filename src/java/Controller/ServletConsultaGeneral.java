@@ -5,6 +5,7 @@
 package Controller;
 
 import Model.ModeloConsultaGeneral;
+import Model.Utilidades.UserRole;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -73,7 +74,9 @@ public class ServletConsultaGeneral extends HttpServlet {
 
         try {
             List<Object> data = modelo.lista(entidad);
+            String code = UserRole.getCodeByTableName(entidad);
             request.getSession().setAttribute("data", data);
+            request.getSession().setAttribute("code", code);
             request.getRequestDispatcher("View/HTML/consultaGeneral.jsp").forward(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(ServletConsultaGeneral.class.getName()).log(Level.SEVERE, null, ex);
