@@ -12,16 +12,23 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/web/View/HTML/menu_admin.jsp</file>
-            <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/web/View/HTML/menu_bibl.jsp</file>
-            <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/web/View/HTML/menu_estudiante.jsp</file>
-            <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/web/View/Javascript/ControladorSideBar.js</file>
-            <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/src/java/Controller/ServletConsulta.java</file>
-            <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/web/View/HTML/formulario_update.jsp</file>
-            <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/src/java/Controller/ServletUpdate.java</file>
-            <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/src/java/Controller/ServletConsultaGeneral.java</file>
-            <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/web/View/HTML/consultaGeneral.jsp</file>
-            <file>file:/C:/Users/Esteb/OneDrive/Documentos/NetBeansProjects/BibliotecaWeb/src/java/Controller/ServletLogin.java</file>
+            <file>file:/C:/Users/cami-/Documents/proyectoActualizado/Biblioteca-Web/src/java/Controller/ServletLogin.java</file>
+            <file>file:/C:/Users/cami-/Documents/proyectoActualizado/Biblioteca-Web/src/java/Model/ModeloLogin.java</file>
+            <file>file:/C:/Users/cami-/Documents/proyectoActualizado/Biblioteca-Web/src/java/Model/Utilidades/MetodosSQL.java</file>
+            <file>file:/C:/Users/cami-/Documents/proyectoActualizado/Biblioteca-Web/src/java/Model/Utilidades/UserRole.java</file>
+            <file>file:/C:/Users/cami-/Documents/proyectoActualizado/Biblioteca-Web/src/java/Model/Entidades/Admin.java</file>
+            <file>file:/C:/Users/cami-/Documents/proyectoActualizado/Biblioteca-Web/src/java/Model/Entidades/Bibliotecario.java</file>
+            <file>file:/C:/Users/cami-/Documents/proyectoActualizado/Biblioteca-Web/src/java/Model/Entidades/Estudiante.java</file>
+            <file>file:/C:/Users/cami-/Documents/proyectoActualizado/Biblioteca-Web/src/java/Model/Entidades/Usuario.java</file>
+            <file>file:/C:/Users/cami-/Documents/proyectoActualizado/Biblioteca-Web/src/java/Controller/ServletUpdate.java</file>
+            <file>file:/C:/Users/cami-/Documents/proyectoActualizado/Biblioteca-Web/web/View/HTML/menu_admin.jsp</file>
+            <file>file:/C:/Users/cami-/Documents/proyectoActualizado/Biblioteca-Web/web/View/HTML/login.jsp</file>
+            <file>file:/C:/Users/cami-/Documents/proyectoActualizado/Biblioteca-Web/web/View/CSS/menu_admin.css</file>
+            <file>file:/C:/Users/cami-/Documents/proyectoActualizado/Biblioteca-Web/web/View/HTML/consultaGeneral.jsp</file>
+            <file>file:/C:/Users/cami-/Documents/proyectoActualizado/Biblioteca-Web/src/java/Controller/ServletMenuActualizar.java</file>
+            <file>file:/C:/Users/cami-/Documents/proyectoActualizado/Biblioteca-Web/src/java/Model/Utilidades/ValidarCampos.java</file>
+            <file>file:/C:/Users/cami-/Documents/proyectoActualizado/Biblioteca-Web/src/java/Controller/ServletFormulario.java</file>
+            <file>file:/C:/Users/cami-/Documents/proyectoActualizado/Biblioteca-Web/src/java/Controller/ServletMenuAdmin.java</file>
         </group>
     </open-files>
 </project-private>

@@ -6,6 +6,7 @@ package Model;
 
 import java.util.ArrayList;
 import Model.Utilidades.MetodosSQL;
+import Model.Utilidades.UserRole;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,7 +23,7 @@ public class ModeloUpdate {
     }
     
     public void updateData(ArrayList<Object> datos) {
-        table = getNameTable();
+        table = UserRole.getTableNameByCode(rol);
         MetodosSQL sql = new MetodosSQL();
         mostrar(datos);
         boolean flag = sql.update(table, datos);
@@ -30,24 +31,6 @@ public class ModeloUpdate {
         if(!flag) {
             JOptionPane.showMessageDialog(null, "NO se actualizo");
         }
-    }
-    
-    private String getNameTable() {
-        
-        switch(rol) {
-            case "admin" -> {
-                return "administrador";
-            }
-            case "bibl" -> {
-                return "bibliotecario";
-            }
-            case "student" -> {
-                return "estudiante";
-            }
-            default -> {
-                return "None";
-            }
-        }      
     }
     
     public void mostrar(ArrayList<Object> datos) {

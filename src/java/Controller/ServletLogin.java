@@ -7,7 +7,9 @@ package Controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import Model.Entidades.Admin;
+import Model.Entidades.Usuario;
 import Model.ModeloLogin;
+import Model.Utilidades.UserRole;
 import Model.Utilidades.ValidarCampos;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
@@ -15,7 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.springframework.http.HttpRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -61,7 +63,10 @@ import org.springframework.http.HttpRequest;
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        processRequest(request, response);
+        HttpSession session = request.getSession();
+        session.invalidate();
+        response.sendRedirect(request.getContextPath() + "/View/HTML/login.jsp");
+        
     }
 
     /**
@@ -75,6 +80,7 @@ import org.springframework.http.HttpRequest;
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("codigo");
+        Usuario usuario = null;
         int n = id.length();
         String rol = "";
         String cc = "";
@@ -96,26 +102,23 @@ import org.springframework.http.HttpRequest;
             
             ModeloLogin login = new ModeloLogin();
             found = login.buscarUsuario(datos, rol);
+            if(found){
+                usuario =login.obtenerUsuario(cedula, UserRole.getTableNameByCode(rol));
+            }
         }  
         
-        if(found) {
-            redireccion(rol, request, response);
+        if(usuario != null) {
+            
+            redireccion(usuario, request, response);
         } else {
             response.sendRedirect(request.getContextPath() + "/login.jsp?error=2");
         }
     }
     
-    private void redireccion(String rol, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        switch (rol) {
-                case "007" -> // Admin
-                    response.sendRedirect(request.getContextPath() + "/View/HTML/menu_admin.jsp");
-                case "010" -> // Bibliotecario
-                    response.sendRedirect(request.getContextPath() + "/View/HTML/menu_bibl.jsp");
-                case "stu" -> // Estudiante (ejemplo: "stu123456")
-                    response.sendRedirect(request.getContextPath() + "/View/HTML/menu_estudiante.jsp");
-                default -> // Si el rol no coincide, redirige a login con error
-                    response.sendRedirect(request.getContextPath() + "/login.jsp?error=1");
-            }
+    private void redireccion(Usuario usuario, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", usuario);
+        response.sendRedirect(request.getContextPath() + "/View/HTML/menu_admin.jsp");
     }
 
     /**
