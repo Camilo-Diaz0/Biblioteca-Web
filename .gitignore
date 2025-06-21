@@ -1,1 +1,33 @@
+
+# === Archivos de compilación generados por Ant ===
+/build/
 /dist/
+/nbbuild/
+/nbdist/
+nbproject/private/
+genfiles.properties
+
+# === Archivos de clases compiladas ===
+*.class
+
+# === Configuración específica de NetBeans ===
+/nbproject/private/
+*.orig
+
+# === Archivos temporales y de respaldo ===
+*.log
+*.tmp
+*~
+*.bak
+*.swp
+
+# === Configuración de sistemas operativos ===
+.DS_Store
+Thumbs.db
+
+# === Configuración de IDEs ===
+*.iml
+.idea/
+.classpath
+.project
+.settings/
