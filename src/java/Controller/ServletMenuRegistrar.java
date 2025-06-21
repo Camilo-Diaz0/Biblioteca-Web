@@ -43,24 +43,27 @@ public class ServletMenuRegistrar extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String comboBox = request.getParameter("options-formulario");
+        String accion = request.getParameter("accion");
         
+        boolean accionIr = "go".equals(accion);
+        if(accionIr) {
+            redireccion(request, response);
+        }else {
+            response.sendRedirect("View/HTML/menu_admin.jsp");
+        }
+        
+    }
+    
+    private void redireccion(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String comboBox = request.getParameter("options-formulario"); 
+           
         switch (comboBox) {
             case "usuarios" -> response.sendRedirect("View/HTML/formulario.jsp");
             case "libros" -> response.sendRedirect("View/HTML/formulario_libros.jsp");
             case "ejemplares" -> response.sendRedirect("View/HTML/formulario_ejemplares.jsp");
             default -> {}
         }
+        
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }

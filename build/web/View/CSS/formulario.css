@@ -7,7 +7,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Author     : Esteb
 */
 body {
-<<<<<<< HEAD
             font-family: 'Segoe UI', Arial, sans-serif;
             background: linear-gradient(135deg, #e0e7ff, #e6f3fa);
             display: flex;
@@ -99,67 +98,3 @@ body {
             background-color: #4b5563;
             transform: translateY(-2px);
         }
-=======
-    font-family: Arial, sans-serif;
-    background: #e9ecef;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-    
-.register-container {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 350px;
-}
-
-.register-container h2 {
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-.form-group {
-    margin-bottom: 1rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.form-group input,
-.form-group select {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.register-button {
-    width: 100%;
-    padding: 0.7rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
- }
- 
-.register-button:hover {
-      background-color: #0056b3;
-}
-.radio-group{
-    display: flex;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    align-items: center;
-    justify-content: center;
-}
-.radio-group label{
-    margin-bottom: 0 !important;
-}
->>>>>>> d9b4a7d20c8e67c46fadce4a21f038451cef5a81

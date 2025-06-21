@@ -79,7 +79,9 @@ import javax.servlet.http.HttpSession;
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
         String id = request.getParameter("codigo");
+        
         Usuario usuario = null;
         int n = id.length();
         String rol = "";

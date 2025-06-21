@@ -11,91 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Ejemplar</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(135deg, #e0e7ff, #e6f3fa);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-        .register-container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 500px;
-        }
-        h2 {
-            color: #1e3a8a;
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-            text-transform: uppercase;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            color: #1f2937;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        input[type="text"],
-        input[type="number"],
-        select {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid #d1d5db;
-            border-radius: 6px;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
-        }
-        input:focus, select:focus {
-            outline: none;
-            border-color: #3b82f6;
-            box-shadow: 0 0 8px rgba(59, 130, 246, 0.2);
-        }
-        .error {
-            color: #dc2626;
-            font-size: 0.85em;
-            margin-top: 5px;
-            display: none;
-        }
-        .button-container {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-        button {
-            padding: 12px 20px;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .register-button {
-            background-color: #3b82f6;
-            color: white;
-        }
-        .register-button:hover {
-            background-color: #2563eb;
-            transform: translateY(-2px);
-        }
-        .back-button {
-            background-color: #6b7280;
-            color: white;
-        }
-        .back-button:hover {
-            background-color: #4b5563;
-            transform: translateY(-2px);
-        }
-    </style>
+    <link rel="stylesheet" href="/BibliotecaWeb/View/CSS/formulario_ejemplares.css"
 </head>
 <body>
     <div class="register-container">
@@ -136,8 +52,8 @@
                 <span class="error" id="error-id_libro">El ID del libro debe ser un número positivo</span>
             </div>
             <div class="button-container">
-                <button type="submit" class="register-button">Registrar</button>
-                <button type="button" class="back-button" onclick="window.location.href='<%= request.getContextPath() %>/menu.html'">Volver</button>
+                <button type="submit" name="accion" value="registrar" class="register-button">Registrar</button>
+                <button type="button" name="accion" value="volver" class="back-button" formnovalidate>Volver</button>
             </div>
         </form>
     </div>

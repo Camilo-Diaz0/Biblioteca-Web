@@ -14,7 +14,7 @@ public class Conexion {
     
     static String mensaje;
     static String login = "root";
-    static String password = "";
+    static String password = "root";
     static String host = "127.0.0.1";
     static String bd = "biblioteca_bd";
 

@@ -27,16 +27,5 @@
             <button class="back-button" name = "accion" value = "back">Volver</button>
         </div>
     </form>
-    <script>
-        function navegar() {
-            const select = document.getElementById('menuOpciones');
-            const url = select.value;
-            if (url) {
-                window.location.href = url;
-            } else {
-                alert('Por favor, seleccione una opción válida.');
-            }
-        }
-    </script>
 </body>
 </html>
