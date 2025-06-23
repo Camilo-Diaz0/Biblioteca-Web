@@ -14,7 +14,7 @@ import Model.Utilidades.Conexion;
 import static Model.Utilidades.Conexion.conectarMySQL;
 import static Model.Utilidades.Conexion.connection;
 import static Model.Utilidades.Conexion.desconexion;
-import com.mysql.cj.jdbc.result.ResultSetMetaData;
+import java.sql.ResultSetMetaData;
 import java.util.List;
 import java.sql.ResultSet;
 import java.util.ArrayList;

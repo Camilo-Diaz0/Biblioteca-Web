@@ -6,6 +6,7 @@
 /nbdist/
 nbproject/private/
 genfiles.properties
+build-impl.xml
 
 # === Archivos de clases compiladas ===
 *.class

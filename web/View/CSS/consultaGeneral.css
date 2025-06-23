@@ -111,7 +111,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
                 border-spacing: 0;
                 background-color: #ffffff;
                 border-radius: 10px;
-                overflow: hidden;
+                /*overflow: hidden;*/
                 box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             }
 
@@ -128,6 +128,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
                 text-transform: uppercase;
                 font-size: 0.95em;
                 letter-spacing: 0.5px;
+                text-align: center;
             }
 
             td {
@@ -135,6 +136,34 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
                 color: #34495e;
                 font-size: 0.95em;
             }
+            
+            .tooltiptext {
+                visibility: hidden;
+                width: 120px;
+                background-color: #333;
+                color: #fff;
+                text-align: center;
+                border-radius: 4px;
+                padding: 6px;
+                position: absolute;
+                z-index: 1;
+                bottom: 125%; /* posiciona el tooltip arriba del icono */
+                left: 40%;
+                transform: translateX(-50%);
+                opacity: 0;
+                transition: opacity 0.3s;
+              }
+            
+            .tooltip {
+                position: relative;
+                display: inline-block;
+                
+            }
+
+            .tooltip:hover .tooltiptext {
+                visibility: visible;
+                opacity: 1;
+              }
 
             /* Zebra striping for rows */
             tr:nth-child(even) td {

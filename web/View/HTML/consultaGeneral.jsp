@@ -38,6 +38,7 @@
                             <c:forEach var="title" items="${data[0]}">
                                 <th><c:out value="${title.key}"/></th>
                             </c:forEach>
+                            <th></th>
                         </c:if>
                     </tr>
                 </thead>
@@ -48,14 +49,17 @@
                             <!-- Iterar sobre los valores de cada fila -->
                             <c:forEach var="value" items="${row}">
                                 <c:if test="${value.key =='id'}">
-                                    <td><a href="<%= request.getContextPath()%>/ServletUpdate?id=${code}${value.value}">
-                                            <c:out value="${value.value}"/>
-                                    </a></td>
+                                    <c:set var="idUsuario" value="${value.value}" />
                                 </c:if>
-                                <c:if test="${value.key != 'id'}">
-                                    <td><c:out value="${value.value}"/></td>
-                                </c:if>
+                                <td><c:out value="${value.value}"/></td>
                             </c:forEach>
+                            <td>
+                                <a href="<%= request.getContextPath()%>/ServletUpdate?id=${code}${idUsuario}" class="tooltip">
+                                    <img src="<%= request.getContextPath()%>/View/img/editar.png" alt="imagen editar" width="20px"/>
+                                    <span class="tooltiptext">Modificar usuario</span>
+                                </a>
+                                
+                            </td>
                         </tr>
                     </c:forEach>
                 </tbody>
