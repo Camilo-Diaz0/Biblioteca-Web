@@ -1,0 +1,209 @@
+/*
+    Created on : 20/06/2025, 2:28:50 a. m.
+    Author     : SAMUEL
+*/
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2980b9;
+    --success-color: #2ecc71;
+    --success-hover: #27ae60;
+    --gray-color: #95a5a6;
+    --gray-hover: #7f8c8d;
+    --danger-color: #e74c3c;
+    --danger-hover: #c0392b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: #809ebc;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.content-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1000px;
+}
+
+.content-header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    border-radius: 20px 20px 0 0;
+    margin: -20px -20px 20px -20px;
+}
+
+.content-header h2 {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.search-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-group label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.search-group input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: inherit;
+}
+
+.search-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.search-group select {
+    width: 200px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: inherit;
+}
+
+.search-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.search-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-block;
+    align-items: center;
+}
+
+.search-button i {
+    margin-right: 5px;
+}
+
+.search-button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.button-group {
+    display: flex;
+    gap: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+thead {
+    background-color: #2c3e50;
+    color: white;
+}
+
+th {
+    padding: 8px;
+    border: 0.5px;
+    text-align: center;
+}
+
+td {
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f5f6fa;
+}
+
+tbody tr:hover {
+    background-color: #e8f1f9;
+    transition: background-color 0.2s ease;
+}
+
+.action-links a {
+    color: #1d6fa5;
+    margin-right: 8px;
+    text-decoration: underline;
+}
+
+.action-links a:hover {
+    color: var(--secondary-color);
+}
+
+.btn-volver {
+    background-color: var(--danger-color);
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+.btn-volver:hover {
+    background-color: var(--danger-hover);
+}
+.tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* posiciona el tooltip arriba del icono */
+    left: 40%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+            
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}

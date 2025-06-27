@@ -21,28 +21,30 @@ import javax.swing.JOptionPane;
  * @author cami-
  */
 public class ReservaMetodosSQL extends Conexion{
-    public void insertar(Reserva reserva){
+    public boolean insertar(Reserva reserva){
         boolean succesfull = conectarMySQL();
         if(succesfull){
             try{
                 String sql = "INSERT INTO reserva values(null, ?, ?, ?, ?)";
                 try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
-                    pstmt.setLong(0, reserva.getEstudianteID());
-                    pstmt.setInt(1, reserva.getEjemplarID());
-                    pstmt.setDate(2, new Date(reserva.getFechaReservada().getTimeInMillis()));
-                    pstmt.setString(3, reserva.getEstado());
-                    pstmt.executeQuery();
+                    pstmt.setDate(1, new Date(reserva.getFechaReservada().getTimeInMillis()));
+                    pstmt.setString(2, reserva.getEstado());
+                    pstmt.setLong(3, reserva.getEstudianteID());
+                    pstmt.setInt(4, reserva.getEjemplarID());
+                    int executeUpdate = pstmt.executeUpdate();
+                    return executeUpdate>0;
                 }
             } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
+                JOptionPane.showMessageDialog(null, "Error metodoSQl " + e.getMessage());
             } finally {
                 desconexion();
             }
         }
+        return false;
     }
     
     public List<Reserva> listarReservas(){
-        String sql = "SELECT * FROM reserva where estado=activo";
+        String sql = "SELECT * FROM reserva where estado='Activo'";
         List<Reserva> reservas = new ArrayList<>();
         boolean succesfull = conectarMySQL();
         if(succesfull){
@@ -78,19 +80,19 @@ public class ReservaMetodosSQL extends Conexion{
         if(succesfull){
             try{
                 PreparedStatement ps = connection.prepareStatement(sql);
-                ps.setInt(0, id);
+                ps.setInt(1, id);
                 ResultSet rs = ps.executeQuery();
                 reserva = new Reserva();
                 Calendar calendar = Calendar.getInstance();
-                
-                reserva.setId(rs.getInt("id"));
-                reserva.setEstudianteID(rs.getLong("estudiante_id"));
-                reserva.setEjemplarID(rs.getInt("ejemplar_id"));
-                calendar.setTime(rs.getDate("fecha_reserva"));
-                reserva.setFechaReservada(calendar);
-                reserva.setEstado(rs.getString("estado"));
-                
-            }catch (SQLException e) {
+                if(rs.next()){
+                    reserva.setId(rs.getInt("id"));
+                    reserva.setEstudianteID(rs.getLong("estudiante_id"));
+                    reserva.setEjemplarID(rs.getInt("ejemplar_id"));
+                    calendar.setTime(rs.getDate("fecha_reserva"));
+                    reserva.setFechaReservada(calendar);
+                    reserva.setEstado(rs.getString("estado"));
+                }
+            }catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
             } finally {
                 desconexion();
@@ -106,9 +108,9 @@ public class ReservaMetodosSQL extends Conexion{
             try{
                 PreparedStatement ps = connection.prepareStatement(sql);
                 ps.setInt(4, reserva.getId());
-                ps.setLong(0, reserva.getEstudianteID());
-                ps.setInt(1, reserva.getEjemplarID());
-                ps.setDate(2, new Date(reserva.getFechaReservada().getTimeInMillis()));
+                ps.setLong(1, reserva.getEstudianteID());
+                ps.setInt(2, reserva.getEjemplarID());
+                ps.setDate(3, new Date(reserva.getFechaReservada().getTimeInMillis()));
                 int updated = ps.executeUpdate();
                 return updated >0;
                 
@@ -123,12 +125,12 @@ public class ReservaMetodosSQL extends Conexion{
     
     public boolean delete(int id){
         boolean succesfull = conectarMySQL();
-        String sql = "UPDATE reserva set estado=inactivo where id=?";
+        String sql = "UPDATE reserva set estado='Inactivo' where id=?";
         
         if(succesfull){
             try{
                 PreparedStatement ps = connection.prepareStatement(sql);
-                ps.setInt(0, id);
+                ps.setInt(1, id);
                 int updated = ps.executeUpdate();
                 return updated > 0;
                 

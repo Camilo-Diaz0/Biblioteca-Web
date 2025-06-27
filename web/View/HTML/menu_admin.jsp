@@ -31,7 +31,6 @@
                         <i class="fas fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </button>
-
                     <div class="menu-category">Contenido</div>
                     <c:if test="${usuario.getCodeRol() == '007'}">
                         <button class="menu-btn";" data-action="gestion-usuarios">

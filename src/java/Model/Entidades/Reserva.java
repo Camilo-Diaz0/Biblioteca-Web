@@ -4,6 +4,7 @@
  */
 package Model.Entidades;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
@@ -14,7 +15,7 @@ public class Reserva {
     int id;
     long estudianteID;
     int ejemplarID;
-    Calendar FechaReservada;
+    Calendar fechaReservada;
     String estado;
 
     public Reserva() {
@@ -23,7 +24,7 @@ public class Reserva {
     public Reserva(int id, long estudianteID, int ejemplarID, Calendar FechaReservada, String estado) {
         this.id = id;
         this.estudianteID = estudianteID;
-        this.FechaReservada = FechaReservada;
+        this.fechaReservada = FechaReservada;
         this.estado = estado;
         this.ejemplarID = ejemplarID;
     }
@@ -45,11 +46,11 @@ public class Reserva {
     }
 
     public Calendar getFechaReservada() {
-        return FechaReservada;
+        return fechaReservada;
     }
 
     public void setFechaReservada(Calendar FechaReservada) {
-        this.FechaReservada = FechaReservada;
+        this.fechaReservada = FechaReservada;
     }
 
     public String getEstado() {
@@ -67,10 +68,15 @@ public class Reserva {
     public void setEjemplarID(int ejemplarID) {
         this.ejemplarID = ejemplarID;
     }
+    
+    public String getFechaString(){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        return dateFormat.format(fechaReservada.getTime());
+    }
 
     @Override
     public String toString() {
-        return "Reservas{" + "id=" + id + ", estudianteID=" + estudianteID + ", ejemplarID=" + ejemplarID + ", FechaReservada=" + FechaReservada + ", estado=" + estado + '}';
+        return "Reservas{" + "id=" + id + ", estudianteID=" + estudianteID + ", ejemplarID=" + ejemplarID + ", FechaReservada=" + fechaReservada + ", estado=" + estado + '}';
     }
 
     

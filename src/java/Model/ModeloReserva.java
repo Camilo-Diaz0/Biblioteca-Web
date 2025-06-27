@@ -33,11 +33,11 @@ public class ModeloReserva {
         return conexion.buscarReserva(id);
     }
     
-    public void crearReserva(String estudianteID, String ejemplarID, String fecha, String estado){
+    public boolean crearReserva(String estudianteID, String ejemplarID, String fecha, String estado){
         try {
             Reserva reserva = new Reserva();
             Calendar fechaReserva = Calendar.getInstance();
-            SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
             Date date = formato.parse(fecha);
             fechaReserva.setTime(date);
             
@@ -45,17 +45,19 @@ public class ModeloReserva {
             reserva.setEjemplarID(Integer.parseInt(ejemplarID));
             reserva.setEstado(estado);
             reserva.setFechaReservada(fechaReserva);
-            conexion.insertar(reserva);
-        } catch (ParseException ex) {
+            return conexion.insertar(reserva);
+            
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error" + ex.getMessage());
         }
+        return false;
     }
     
     public boolean actualizarReserva(String id, String estudianteID, String ejemplarID, String fecha){
         try {
             Reserva reserva = new Reserva();
             Calendar fechaReserva = Calendar.getInstance();
-            SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
             Date date = formato.parse(fecha);
             fechaReserva.setTime(date);
             

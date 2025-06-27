@@ -21,17 +21,18 @@ import javax.swing.JOptionPane;
  */
 public class MultasMetodosSQL extends Conexion{
     
-    public void insertar(Multa multa){
+    public boolean insertar(Multa multa){
         boolean succesfull = conectarMySQL();
         if(succesfull){
             try{
                 String sql = "INSERT INTO multa values(null, ?, ?, ?, ?)";
                 try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
-                    pstmt.setInt(0, multa.getMonto());
-                    pstmt.setString(1, multa.getMotivo());
-                    pstmt.setInt(2, multa.getPrestamoID());
+                    pstmt.setInt(1, multa.getMonto());
+                    pstmt.setString(2, multa.getMotivo());
+                    pstmt.setInt(4, multa.getPrestamoID());
                     pstmt.setString(3, multa.getEstado());
-                    pstmt.executeQuery();
+                    int executeUpdate = pstmt.executeUpdate();
+                    return executeUpdate > 0;
                 }
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
@@ -39,10 +40,11 @@ public class MultasMetodosSQL extends Conexion{
                 desconexion();
             }
         }
+        return false;
     }
   
     public List<Multa> listarMultas(){
-        String sql = "SELECT * FROM multa where estado=activo";
+        String sql = "SELECT * FROM multa where estado='Activo'";
         List<Multa> multas = new ArrayList<>();
         boolean succesfull = conectarMySQL();
         if(succesfull){
@@ -71,20 +73,21 @@ public class MultasMetodosSQL extends Conexion{
     
     public Multa buscarMulta(int id){
         Multa multa = null;
-        String sql = "SELECT * FROM reserva where id=?";
+        String sql = "SELECT * FROM multa where id=?";
         boolean succesfull = conectarMySQL();
         if(succesfull){
             try{
                 PreparedStatement ps = connection.prepareStatement(sql);
-                ps.setInt(0, id);
+                ps.setInt(1, id);
                 ResultSet rs = ps.executeQuery();
-                multa = new Multa();
-                multa.setId(rs.getInt("id"));
-                multa.setMonto(rs.getInt("monto"));
-                multa.setMotivo(rs.getString("motivo"));
-                multa.setPrestamoID(rs.getInt("prestamo_id"));
-                multa.setEstado(rs.getString("estado"));
-                
+                if(rs.next()){
+                    multa = new Multa();
+                    multa.setId(rs.getInt("id"));
+                    multa.setMonto(rs.getInt("monto"));
+                    multa.setMotivo(rs.getString("motivo"));
+                    multa.setPrestamoID(rs.getInt("prestamo_id"));
+                    multa.setEstado(rs.getString("estado"));
+                }
             }catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
             } finally {
@@ -100,10 +103,10 @@ public class MultasMetodosSQL extends Conexion{
         if(succesfull){
             try{
                 PreparedStatement ps = connection.prepareStatement(sql);
-                ps.setInt(3, multa.getId());
-                ps.setInt(0, multa.getMonto());
-                ps.setString(1, multa.getMotivo());
-                ps.setInt(2, multa.getPrestamoID());
+                ps.setInt(4, multa.getId());
+                ps.setInt(1, multa.getMonto());
+                ps.setString(2, multa.getMotivo());
+                ps.setInt(3, multa.getPrestamoID());
                 int updated = ps.executeUpdate();
                 return updated >0;
                 
@@ -118,12 +121,12 @@ public class MultasMetodosSQL extends Conexion{
     
     public boolean delete(int id){
         boolean succesfull = conectarMySQL();
-        String sql = "UPDATE multa set estado=inactivo where id=?";
+        String sql = "UPDATE multa set estado='Inactivo' where id=?";
         
         if(succesfull){
             try{
                 PreparedStatement ps = connection.prepareStatement(sql);
-                ps.setInt(0, id);
+                ps.setInt(1, id);
                 int updated = ps.executeUpdate();
                 return updated > 0;
                 
